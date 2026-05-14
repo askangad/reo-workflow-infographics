@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Buyer LinkedIn Engagement Agent — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Sales Rep Suite · Workflow 02</div>
+    <div class="title">Buyer LinkedIn Engagement Agent</div>
+    <div class="subtitle">
+      Whenever a new persona-matched buyer surfaces inside a rep's territory,
+      auto-trigger a LinkedIn connection request to start the relationship.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Rep-specific account segment</div>
+      </div>
+      <div class="step-desc">
+        Start from a Reo.Dev segment scoped to the rep — either via a manual list or
+        their CRM-owned accounts.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Account scope</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 — trigger -->
+    <div class="step">
+      <div class="trigger">Trigger · new persona-matched buyer detected</div>
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Detect new buyer matching persona</div>
+      </div>
+      <div class="step-desc">
+        Reo.Dev surfaces any new developer / buyer inside the segment that matches the
+        configured buyer-persona rules — and adds them to the target account.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Signal source</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — buyer persona match</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 -->
+    <div class="step compact">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">Capture LinkedIn profile URL</div>
+      </div>
+      <div class="step-desc">
+        Resolve the buyer's LinkedIn profile and pipe it downstream as the
+        outreach handle.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 — push into LinkedIn automation -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">Push into a LinkedIn automation tool</div>
+      </div>
+      <div class="step-desc">
+        The profile is handed off to the team's LinkedIn automation platform of choice,
+        ready for outreach.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">LinkedIn automation</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 5 — terminal -->
+    <div class="step terminal">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <div class="step-title">Auto-send connection request</div>
+      </div>
+      <div class="step-desc">
+        A connection request lands in the buyer's LinkedIn inbox —
+        no manual rep effort required.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual workflow agent</strong> · Persona-matched buyers · zero-touch outreach
+  </div>
+
+</div>
+</body>
+</html>

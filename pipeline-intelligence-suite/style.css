@@ -1,0 +1,274 @@
+/* Reo ProServ — Workflow Infographic shared styles */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: #FFFFFF;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 64px 72px 72px 72px;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #F5F3FF 0%, rgba(245,243,255,0) 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAFAFE 100%);
+}
+
+/* ---------- Header ---------- */
+.header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid #E2D6FE;
+  background: #F5F0FF;
+  color: #6D28D9;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #7C3AED;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.18);
+}
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0B1020;
+}
+.subtitle {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #475569;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+}
+
+/* ---------- Flow ---------- */
+.flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.connector {
+  width: 2px;
+  height: 36px;
+  background: linear-gradient(180deg, #C4B5FD 0%, #7C3AED 100%);
+  position: relative;
+}
+.connector::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #7C3AED;
+}
+
+/* ---------- Step card ---------- */
+.step {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid #E9DEFB;
+  border-radius: 18px;
+  padding: 22px 26px 24px 26px;
+  box-shadow: 0 1px 0 rgba(124,58,237,0.04), 0 12px 24px -16px rgba(76,29,149,0.12);
+  position: relative;
+}
+.step.compact { padding: 18px 24px 20px 24px; }
+
+.step-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: #7C3AED;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  flex: none;
+}
+.step-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0B1020;
+  letter-spacing: -0.005em;
+}
+.step-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.55;
+  margin-left: 42px;
+}
+
+/* ---------- Tool chips ---------- */
+.tool-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 14px;
+  margin-left: 42px;
+  flex-wrap: wrap;
+}
+.tool-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 16px;
+}
+.tool-group + .tool-group { border-left: 1px solid #EEE7FB; padding-left: 16px; }
+.tool-group-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #8B5CF6;
+}
+.chips {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 8px;
+  background: #FAFAFE;
+  border: 1px solid #ECE6F8;
+  border-radius: 10px;
+}
+.chip img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.chip span {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+/* ---------- Highlight: AI step ---------- */
+.step.ai {
+  border-color: #C4B5FD;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF5FF 100%);
+  box-shadow: 0 1px 0 rgba(124,58,237,0.05), 0 18px 32px -18px rgba(76,29,149,0.22);
+}
+.step.ai .step-num { background: linear-gradient(140deg, #7C3AED 0%, #5B21B6 100%); }
+
+/* ---------- Fork (parallel branches) ---------- */
+.fork {
+  display: flex;
+  gap: 22px;
+  width: 100%;
+}
+.fork .step { flex: 1; }
+
+.fork-connector {
+  width: 100%;
+  height: 36px;
+  position: relative;
+}
+.fork-connector .left,
+.fork-connector .right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #7C3AED 0%, #C4B5FD 100%);
+}
+.fork-connector .left { left: 25%; }
+.fork-connector .right { left: 75%; }
+.fork-connector .bar {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: #7C3AED;
+}
+.fork-connector .arrow-l,
+.fork-connector .arrow-r {
+  position: absolute;
+  bottom: -1px;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #7C3AED;
+}
+.fork-connector .arrow-l { left: calc(25% - 6px); }
+.fork-connector .arrow-r { left: calc(75% - 6px); }
+
+/* ---------- Trigger pill ---------- */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF7ED;
+  color: #B45309;
+  border: 1px solid #FED7AA;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 42px;
+}
+.trigger::before {
+  content: "";
+  width: 7px; height: 7px;
+  background: #F59E0B;
+  border-radius: 50%;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12.5px;
+  color: #94A3B8;
+  letter-spacing: 0.2px;
+}
+.footer strong { color: #6D28D9; font-weight: 600; }
+
+/* ---------- Output card (terminal) ---------- */
+.step.terminal {
+  background: linear-gradient(180deg, #FAFAFE 0%, #F5F0FF 100%);
+  border-color: #DDD0FB;
+}
+.step.terminal .step-num {
+  background: #0B1020;
+}

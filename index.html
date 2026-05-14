@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Reo ProServ — Workflow Infographics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #FAFAFE;
+    color: #0F172A;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 56px 32px 72px 32px;
+    background:
+      radial-gradient(1000px 500px at 50% -10%, #F5F3FF 0%, rgba(245,243,255,0) 60%);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid #E2D6FE;
+    background: #F5F0FF;
+    color: #6D28D9;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #7C3AED; box-shadow: 0 0 0 3px rgba(124,58,237,0.18); }
+  h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; color: #0B1020; }
+  .subtitle { margin-top: 10px; font-size: 16px; color: #475569; line-height: 1.55; max-width: 720px; }
+  .suite { margin-top: 44px; }
+  .suite-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .suite-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #7C3AED;
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+  }
+  .suite-title { font-size: 20px; font-weight: 700; color: #0B1020; letter-spacing: -0.01em; }
+  .suite-meta { font-size: 13px; color: #94A3B8; margin-left: 6px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .card {
+    display: block;
+    background: white;
+    border: 1.5px solid #E9DEFB;
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: #C4B5FD;
+    box-shadow: 0 14px 28px -16px rgba(76,29,149,0.22);
+  }
+  .card .row {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .num {
+    flex: none;
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #F5F0FF 0%, #E2D6FE 100%);
+    color: #6D28D9;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #E2D6FE;
+  }
+  .name { font-size: 15px; font-weight: 600; color: #0B1020; letter-spacing: -0.005em; }
+  .open {
+    margin-left: auto;
+    font-size: 12px;
+    color: #7C3AED;
+    font-weight: 600;
+  }
+  .open::after { content: " →"; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #E9DEFB;
+    text-align: center;
+    font-size: 12.5px;
+    color: #94A3B8;
+  }
+  footer strong { color: #6D28D9; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="badge"><span class="dot"></span> Reo ProServ · Workflow Catalogue</div>
+  <h1>Workflow Infographics</h1>
+  <p class="subtitle">
+    16 GTM workflow infographics — Sales Rep enablement, Automated Outbound and
+    Pipeline Intelligence — built for the Reo.Dev ProServ catalogue.
+  </p>
+
+  <!-- ============ Sales Rep Suite ============ -->
+  <section class="suite">
+    <div class="suite-head">
+      <div class="suite-num">A</div>
+      <div class="suite-title">Sales Rep Suite</div>
+      <div class="suite-meta">· 5 workflows</div>
+    </div>
+    <div class="grid">
+      <a class="card" href="/sales-rep-suite/01-smart-account-assignment-agent">
+        <div class="row"><div class="num">01</div><div class="name">Smart Account Assignment Agent</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/sales-rep-suite/02-buyer-linkedin-engagement-agent">
+        <div class="row"><div class="num">02</div><div class="name">Buyer LinkedIn Engagement Agent</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/sales-rep-suite/03-lost-deal-win-back-agent">
+        <div class="row"><div class="num">03</div><div class="name">Lost-Deal Win-Back Agent</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/sales-rep-suite/04-ae-pre-call-copilot">
+        <div class="row"><div class="num">04</div><div class="name">AE Pre-Call Co-Pilot</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/sales-rep-suite/05-buyer-high-intent-alert-agent">
+        <div class="row"><div class="num">05</div><div class="name">Buyer High-Intent Alert Agent</div><div class="open">Open</div></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Automated Outbound Suite ============ -->
+  <section class="suite">
+    <div class="suite-head">
+      <div class="suite-num">B</div>
+      <div class="suite-title">Automated Outbound Suite</div>
+      <div class="suite-meta">· 6 workflows</div>
+    </div>
+    <div class="grid">
+      <a class="card" href="/automated-outbound-suite/06-persona-hire-trigger-campaign">
+        <div class="row"><div class="num">06</div><div class="name">Persona-Hire Trigger Campaign</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/automated-outbound-suite/07-champion-career-move-outbound">
+        <div class="row"><div class="num">07</div><div class="name">Champion Career-Move Outbound</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/automated-outbound-suite/08-competitor-repo-pain-capture-agent">
+        <div class="row"><div class="num">08</div><div class="name">Competitor Repo Pain Capture Agent</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/automated-outbound-suite/09-competitor-stack-hire-displacement">
+        <div class="row"><div class="num">09</div><div class="name">Competitor-Stack Hire Displacement</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/automated-outbound-suite/10-stack-match-awareness-campaign">
+        <div class="row"><div class="num">10</div><div class="name">Stack-Match Awareness Campaign</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/automated-outbound-suite/11-tech-migration-awareness-campaign">
+        <div class="row"><div class="num">11</div><div class="name">Tech Migration Awareness Campaign</div><div class="open">Open</div></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Pipeline Intelligence Suite ============ -->
+  <section class="suite">
+    <div class="suite-head">
+      <div class="suite-num">C</div>
+      <div class="suite-title">Pipeline Intelligence Suite</div>
+      <div class="suite-meta">· 5 workflows</div>
+    </div>
+    <div class="grid">
+      <a class="card" href="/pipeline-intelligence-suite/12-tam-qualification-engine">
+        <div class="row"><div class="num">12</div><div class="name">TAM Qualification Engine</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/pipeline-intelligence-suite/13-live-inbound-qualification-agent">
+        <div class="row"><div class="num">13</div><div class="name">Live Inbound Qualification Agent</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/pipeline-intelligence-suite/14-tam-scoring-engine">
+        <div class="row"><div class="num">14</div><div class="name">TAM Scoring Engine</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/pipeline-intelligence-suite/15-dynamic-lead-account-scoring-model">
+        <div class="row"><div class="num">15</div><div class="name">Dynamic Lead &amp; Account Scoring Model</div><div class="open">Open</div></div>
+      </a>
+      <a class="card" href="/pipeline-intelligence-suite/16-gtm-mesh-account-intelligence-hub">
+        <div class="row"><div class="num">16</div><div class="name">GTM Mesh — Account Intelligence Hub</div><div class="open">Open</div></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Built with <strong>Reo.Dev</strong> · Auto-deployed via GitHub → Vercel
+  </footer>
+</div>
+</body>
+</html>

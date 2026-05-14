@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>TAM Qualification Engine — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* Two-track scoped layout for TAM Qualification */
+  .page.wide { width: 1280px; padding: 64px 60px 72px 60px; }
+  .tracks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .track-head {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .track-head .track-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  .track-head.account .track-label {
+    color: #6D28D9;
+    background: #F5F0FF;
+    border: 1px solid #E2D6FE;
+  }
+  .track-head.contact .track-label {
+    color: #B45309;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+  }
+  .track-head h3 {
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #0B1020;
+    letter-spacing: -0.005em;
+  }
+  .track-head p {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.5;
+    max-width: 460px;
+    margin-left: auto; margin-right: auto;
+  }
+  .track .step { padding: 18px 20px 18px 20px; }
+  .track .step-title { font-size: 16px; }
+  .track .step-desc { font-size: 13.5px; margin-left: 38px; }
+  .track .step-num { width: 26px; height: 26px; font-size: 12px; }
+  .track .tool-row { margin-left: 38px; gap: 10px; }
+  .track .tool-group { padding-right: 12px; }
+  .track .tool-group + .tool-group { padding-left: 12px; }
+  .track .chip { padding: 5px 9px 5px 7px; }
+  .track .chip img { width: 20px; height: 20px; }
+  .track .chip span { font-size: 12px; }
+  .track .connector { height: 28px; }
+  .premise {
+    margin-top: 12px;
+    margin-left: 38px;
+    padding: 10px 12px;
+    border-left: 3px solid #C4B5FD;
+    background: #F8F4FF;
+    font-size: 12.5px;
+    color: #4C1D95;
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="page wide">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Pipeline Intelligence Suite · Workflow 12</div>
+    <div class="title">TAM Qualification Engine</div>
+    <div class="subtitle">
+      Build a scalable ICP-tiering + persona-mapping system for DevTools GTM — two
+      parallel tracks: <strong>Account qualification</strong> on the left, <strong>Contact qualification</strong> on the right.
+    </div>
+  </div>
+
+  <div class="tracks">
+
+    <!-- ============ ACCOUNT TRACK ============ -->
+    <div class="track">
+      <div class="track-head account">
+        <div class="track-label">Account track</div>
+        <h3>Account qualification &amp; ICP tiering</h3>
+        <p>From raw TAM list → enriched, AI-tiered accounts piped back into the CRM.</p>
+      </div>
+
+      <div class="flow">
+
+        <!-- A1 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">1</div>
+            <div class="step-title">Get your TAM account list</div>
+          </div>
+          <div class="step-desc">Start from CRM, Reo.Dev or your intent tools.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+                <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+                <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+                <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+                <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+                <div class="chip"><img src="assets/clearbit.png"/><span>Clearbit</span></div>
+                <div class="chip"><img src="assets/csv.png"/><span>CSV</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- A2 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">2</div>
+            <div class="step-title">Enrich with firmographics + tech-fit data</div>
+          </div>
+          <div class="step-desc">Layer account-level and technical signals.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="tool-group-label">Firmographics</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/clearbit.png"/><span>Clearbit</span></div>
+                <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+                <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+              </div>
+            </div>
+            <div class="tool-group">
+              <div class="tool-group-label">Tech-stack signals</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+                <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- A3 -->
+        <div class="step ai">
+          <div class="step-head">
+            <div class="step-num">3</div>
+            <div class="step-title">AI agent — LLM classification layer</div>
+          </div>
+          <div class="step-desc">Maps each account into ICP tiers, normalises the raw tech stack and ranks fitment.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="tool-group-label">Orchestration</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/n8n.png"/><span>n8n</span></div>
+                <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+              </div>
+            </div>
+            <div class="tool-group">
+              <div class="tool-group-label">Reasoning</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+                <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- A4 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">4</div>
+            <div class="step-title">Push enriched data into CRM</div>
+          </div>
+          <div class="step-desc">Custom card views with ICP-tier scoring.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+                <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+                <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+                <div class="chip"><img src="assets/zapier.ico"/><span>API / Webhooks</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- A5 -->
+        <div class="step terminal">
+          <div class="step-head">
+            <div class="step-num">5</div>
+            <div class="step-title">Custom web app — scoring &amp; content engineering</div>
+          </div>
+          <div class="step-desc">Build the rep-facing view with vibe-coding tools, no-code to full-stack.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/lovable.png"/><span>Lovable</span></div>
+                <div class="chip"><img src="assets/replit.png"/><span>Replit</span></div>
+                <div class="chip"><img src="assets/claude_code.png"/><span>Claude Code</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============ CONTACT TRACK ============ -->
+    <div class="track">
+      <div class="track-head contact">
+        <div class="track-label">Contact track</div>
+        <h3>Persona mapping &amp; contact qualification</h3>
+        <p>From contact list → AI-mapped personas based on skills, experience &amp; programming languages.</p>
+      </div>
+
+      <div class="flow">
+
+        <!-- C1 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">1</div>
+            <div class="step-title">Get your developers / contacts list</div>
+          </div>
+          <div class="step-desc">From CRM, Reo.Dev or your intent tools.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+                <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+                <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+                <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+                <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+                <div class="chip"><img src="assets/csv.png"/><span>CSV</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- C2 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">2</div>
+            <div class="step-title">Enrich designation, location &amp; technical signals</div>
+          </div>
+          <div class="step-desc">L1 firmographic enrichment + L2 LinkedIn-derived skills &amp; programming languages.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="tool-group-label">L1 basic enrichment</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+                <div class="chip"><img src="assets/clearbit.png"/><span>Clearbit</span></div>
+                <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+              </div>
+            </div>
+            <div class="tool-group">
+              <div class="tool-group-label">L2 skills &amp; languages</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/linkedin_sales_nav.ico"/><span>LinkedIn</span></div>
+                <div class="chip"><img src="assets/claude.png"/><span>AI / LLM</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- C3 -->
+        <div class="step ai">
+          <div class="step-head">
+            <div class="step-num">3</div>
+            <div class="step-title">AI agent — LLM persona classifier</div>
+          </div>
+          <div class="step-desc">Maps each profile to the right persona cohort using the customer's defined framework.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="tool-group-label">Orchestration</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/n8n.png"/><span>n8n</span></div>
+                <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+              </div>
+            </div>
+            <div class="tool-group">
+              <div class="tool-group-label">Reasoning</div>
+              <div class="chips">
+                <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+                <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="premise">
+            <strong>Premise:</strong> Upload your persona framework as a <code>.md</code> file —
+            the LLM reads persona definitions + classification logic and maps each profile
+            to the right cohort automatically.
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- C4 -->
+        <div class="step">
+          <div class="step-head">
+            <div class="step-num">4</div>
+            <div class="step-title">Push enriched data into CRM</div>
+          </div>
+          <div class="step-desc">Custom contact views with persona scoring &amp; segmentation.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+                <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+                <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+                <div class="chip"><img src="assets/zapier.ico"/><span>API / Webhooks</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- C5 -->
+        <div class="step terminal">
+          <div class="step-head">
+            <div class="step-num">5</div>
+            <div class="step-title">Custom web app — persona insights &amp; content engineering</div>
+          </div>
+          <div class="step-desc">Persona-driven views &amp; content workspaces, built with vibe-coding tools.</div>
+          <div class="tool-row">
+            <div class="tool-group">
+              <div class="chips">
+                <div class="chip"><img src="assets/lovable.png"/><span>Lovable</span></div>
+                <div class="chip"><img src="assets/replit.png"/><span>Replit</span></div>
+                <div class="chip"><img src="assets/claude_code.png"/><span>Claude Code</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>One-time foundation</strong> · Account &amp; contact qualification framework that powers every downstream workflow
+  </div>
+
+</div>
+</body>
+</html>

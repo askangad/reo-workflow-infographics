@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Buyer High-Intent Alert Agent — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Sales Rep Suite · Workflow 05</div>
+    <div class="title">Buyer High-Intent Alert Agent</div>
+    <div class="subtitle">
+      The moment a buyer shows high-intent behaviour on commercial &amp; product pages,
+      the CRM owner gets a Slack + email alert with an AI-drafted next-step plan.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">High-intent Reo.Dev segment</div>
+      </div>
+      <div class="step-desc">
+        A dedicated Reo.Dev segment tracks subsets of buying-intent behaviour —
+        product activity, pricing &amp; commercial pages, deep documentation visits.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Signal source</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — high-intent segment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 — trigger -->
+    <div class="step">
+      <div class="trigger">Trigger · buyer hits high-intent threshold</div>
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Identify the buyer behind the activity</div>
+      </div>
+      <div class="step-desc">
+        When a known or resolvable buyer crosses the intent threshold, the workflow
+        fires — capturing the pages, the cadence and the activity score.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 — AI -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">AI summarises &amp; recommends next steps</div>
+      </div>
+      <div class="step-desc">
+        Claude reads the activity trail plus the larger account context and writes a
+        short brief — likely use case, why now, and the specific next move the rep
+        should make.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Account context</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 — fork to Slack + Email -->
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4a</div>
+          <div class="step-title">Slack alert to CRM owner</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          A real-time Slack message lands with the buyer's name, intent score and
+          the AI-suggested next step.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4b</div>
+          <div class="step-title">Email digest with full context</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          A long-form email mirrors the alert — full activity timeline, account
+          snapshot and recommended outreach copy.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/gmail.webp"/><span>Email</span></div>
+              <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev deep link</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual campaign</strong> · Intent → alert → action, in real time
+  </div>
+
+</div>
+</body>
+</html>

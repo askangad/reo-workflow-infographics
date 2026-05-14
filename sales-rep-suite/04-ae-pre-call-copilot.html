@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AE Pre-Call Co-Pilot — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Sales Rep Suite · Workflow 04</div>
+    <div class="title">AE Pre-Call Co-Pilot</div>
+    <div class="subtitle">
+      30 minutes before every scheduled call, an AI-generated brief lands in the AE's
+      inbox &amp; Slack — use cases, prior activity, next steps, all in one place.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Connect the AE's calendar</div>
+      </div>
+      <div class="step-desc">
+        Sync Google Calendar or Microsoft Outlook to surface every upcoming customer call
+        on the rep's schedule.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Calendar source</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/google_calendar.png"/><span>Google / Outlook Calendar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 -->
+    <div class="step compact">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Identify the meeting &amp; attendees</div>
+      </div>
+      <div class="step-desc">
+        For each call, pull the attendee list, resolve their company &amp; titles, and
+        match them back to the right CRM account.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">Gather account context</div>
+      </div>
+      <div class="step-desc">
+        Stitch together everything the AE would otherwise have to research manually —
+        prior conversations, CRM history and Reo.Dev account-level signals.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Call intelligence</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/gong.png"/><span>Gong</span></div>
+            <div class="chip"><img src="assets/fireflies.png"/><span>Fireflies</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Email engagement</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+            <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>CRM email logs</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">LinkedIn engagement</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">CRM context</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Dev signals</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 — AI -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">AI composes the call brief</div>
+      </div>
+      <div class="step-desc">
+        Claude synthesises everything into a structured brief — use cases under
+        evaluation, previous activity, suggested next steps and talking points.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 5 — fork delivery -->
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5a</div>
+          <div class="step-title">Delivered to Slack · T-30 min</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          The brief drops into the AE's Slack 30 minutes before the call —
+          glanceable on mobile or desktop.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5b</div>
+          <div class="step-title">Email recap with sources</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          A long-form version lands in email with deep links back into the CRM,
+          recordings and Reo.Dev account view.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/gmail.webp"/><span>Email</span></div>
+              <div class="chip"><img src="assets/hubspot.png"/><span>CRM deep links</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual workflow</strong> · Better sales velocity · Higher pipeline conversion
+  </div>
+
+</div>
+</body>
+</html>

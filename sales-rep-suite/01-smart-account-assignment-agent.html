@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Smart Account Assignment Agent — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Sales Rep Suite · Workflow 01</div>
+    <div class="title">Smart Account Assignment Agent</div>
+    <div class="subtitle">
+      Automatically route the right accounts to the right rep on a recurring cadence —
+      blending Reo.Dev signals, CRM ownership and AI-driven qualification.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Define rep territory</div>
+      </div>
+      <div class="step-desc">
+        Start from each sales rep's Reo.Dev segment, mapped to their CRM-owned accounts
+        or an uploaded list. This becomes the candidate pool for that rep.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Account universe</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Aggregate qualification signals</div>
+      </div>
+      <div class="step-desc">
+        Layer Reo.Dev developer-activity signals on top of GTM engagement —
+        calls, emails and outbound — plus account-level ICP &amp; technical fitment.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Dev signals</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Call intelligence</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/gong.png"/><span>Gong</span></div>
+            <div class="chip"><img src="assets/fireflies.png"/><span>Fireflies</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Email engagement</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+            <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>CRM email logs</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">LinkedIn engagement</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 — AI -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">AI qualification &amp; ranking</div>
+      </div>
+      <div class="step-desc">
+        Clay orchestrates the data, Claude (or OpenAI) scores each account against the
+        ICP rubric and ranks the top-N candidates for assignment.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">LLM reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 -->
+    <div class="step compact">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">Auto-assign on a customizable cadence</div>
+      </div>
+      <div class="step-desc">
+        Dispatch N accounts per rep on a rolling schedule — e.g. 5 / week or 10 / week —
+        configurable per team. The assignment loop runs perpetually.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 5 — fork between destination + alerts -->
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5a</div>
+          <div class="step-title">Land in rep's workspace</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Newly-assigned accounts are written to the rep's system of record.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+              <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+              <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+              <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+              <div class="chip"><img src="assets/csv.png"/><span>Google Sheet / CSV</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5b</div>
+          <div class="step-title">Notify the rep</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          The rep is alerted with their fresh account list — context-rich and ready to action.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+              <div class="chip"><img src="assets/gmail.webp"/><span>Email digest</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual workflow agent</strong> · Powered by Reo.Dev signals + your GTM stack
+  </div>
+
+</div>
+</body>
+</html>

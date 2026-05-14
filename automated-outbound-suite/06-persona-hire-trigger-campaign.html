@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Persona-Hire Trigger Campaign — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Automated Outbound Suite · Workflow 06</div>
+    <div class="title">Persona-Hire Trigger Campaign</div>
+    <div class="subtitle">
+      Every new economic-buyer hire inside an ICP account triggers a parallel
+      LinkedIn + email outbound sequence — plus a CSV fork for ABM LinkedIn ads.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Define the economic-buyer persona</div>
+      </div>
+      <div class="step-desc">
+        Lock in the persona criteria — title patterns, seniority, function — that
+        match the customer's ICP economic buyer (e.g. VP Engineering, Head of Platform).
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Persona definition</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — persona rules</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 — trigger -->
+    <div class="step">
+      <div class="trigger">Trigger · new key hire detected</div>
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">New engineering leader / key hire surfaces</div>
+      </div>
+      <div class="step-desc">
+        Reo.Dev's NewKeyHire signal fires whenever a fresh hire matches the persona
+        rules — sending the contact downstream for qualification.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Signal source</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — NewKeyHire</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 — AI ICP qualifier -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">AI checks ICP fit</div>
+      </div>
+      <div class="step-desc">
+        An LLM layer validates whether the hire's company is in-ICP — using firmographics,
+        technical fitment and Reo.Dev account signals — and gates the next step.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Account fitment</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 — fork: LinkedIn / Email / Slack / CSV -->
+    <div class="step compact">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">Branch into multi-channel activation</div>
+      </div>
+      <div class="step-desc">
+        Qualified contacts fan out across four parallel channels — LinkedIn touch,
+        email touch, internal Slack alert and an ABM-ads CSV list.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4a</div>
+          <div class="step-title">LinkedIn touch sequence</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Send connection request. On accept, an AI-generated message lands —
+          grounded in account context + the new hire's role.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+              <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+              <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4b</div>
+          <div class="step-title">Email touch sequence</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Parallel email sequence with AI-personalised copy referencing the
+          account and the hire's role transition.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+              <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+              <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+              <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4c</div>
+          <div class="step-title">Internal alert to the rep</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          A Slack ping notifies the CRM owner (or whoever subscribes) that a
+          new key buyer just joined an in-ICP account.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">4d</div>
+          <div class="step-title">CSV → ABM LinkedIn Ads audience</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          The qualified contacts append to a CSV list — ready to be uploaded
+          as a custom LinkedIn Ads audience for ABM coverage.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/csv.png"/><span>CSV list</span></div>
+              <div class="chip"><img src="assets/linkedin_ads.ico"/><span>LinkedIn Ads</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual campaign</strong> · New buyer · new account · same day outreach
+  </div>
+
+</div>
+</body>
+</html>

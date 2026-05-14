@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GTM Mesh — Account Intelligence Hub — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  .page.wide { width: 1280px; padding: 64px 60px 72px 60px; }
+
+  /* 3-up signal source row */
+  .source-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+    width: 100%;
+  }
+  .source-row .step { padding: 18px 20px 20px 20px; }
+  .source-row .step-title { font-size: 16px; }
+  .source-row .step-desc { font-size: 13px; margin-left: 38px; line-height: 1.5; }
+  .source-row .step-num { width: 26px; height: 26px; font-size: 12px; }
+  .source-row .tool-row { margin-left: 38px; }
+  .source-row .chip span { font-size: 11.5px; }
+  .source-row .chip img { width: 18px; height: 18px; }
+
+  /* 3-to-1 converging connector */
+  .converge {
+    width: 100%;
+    height: 56px;
+    position: relative;
+    margin-top: -2px;
+  }
+  .converge::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 16.66%;
+    width: 66.66%;
+    height: 26px;
+    border: 2px solid #C4B5FD;
+    border-bottom: none;
+    border-radius: 14px 14px 0 0;
+    border-color: #C4B5FD #C4B5FD transparent #C4B5FD;
+  }
+  .converge::after {
+    content: "";
+    position: absolute;
+    top: 22px; left: 50%;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(180deg, #C4B5FD 0%, #7C3AED 100%);
+    transform: translateX(-50%);
+  }
+  .converge .arrow {
+    position: absolute;
+    bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid #7C3AED;
+  }
+
+  /* Inline mini-chip cluster inside step desc */
+  .inline-icons {
+    display: inline-flex;
+    gap: 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .inline-icons img {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  /* ===== Microsite preview ===== */
+  .microsite {
+    width: 100%;
+    margin-top: 4px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBFAFF 100%);
+    border: 1.5px solid #DDD0FB;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(124,58,237,0.04), 0 28px 48px -24px rgba(76,29,149,0.20);
+  }
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #F4F1FA;
+    border-bottom: 1px solid #E9DEFB;
+  }
+  .browser-bar .dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+  }
+  .browser-bar .dot.r { background: #FF5F57; }
+  .browser-bar .dot.y { background: #FEBC2E; }
+  .browser-bar .dot.g { background: #28C840; }
+  .browser-bar .url {
+    margin-left: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E9DEFB;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #4C1D95;
+    flex: 1;
+    max-width: 520px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .browser-bar .badge-live {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #E9F7EF;
+    color: #047857;
+    border: 1px solid #BBF7D0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .browser-bar .badge-live::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+  }
+
+  .microsite-header {
+    padding: 22px 26px 16px 26px;
+    border-bottom: 1px solid #F0EBF8;
+    background: linear-gradient(180deg, #FAF7FF 0%, #FFFFFF 100%);
+  }
+  .microsite-header .acct-row {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .acct-logo {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .acct-name { font-size: 22px; font-weight: 700; color: #0B1020; letter-spacing: -0.01em; }
+  .acct-meta { font-size: 12.5px; color: #64748B; margin-top: 2px; }
+  .tabs {
+    display: flex; gap: 4px;
+    margin-top: 18px;
+  }
+  .tab {
+    padding: 8px 14px;
+    border-radius: 8px 8px 0 0;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #64748B;
+    border-bottom: 2px solid transparent;
+  }
+  .tab.active {
+    color: #6D28D9;
+    background: #F5F0FF;
+    border-bottom-color: #7C3AED;
+    font-weight: 600;
+  }
+
+  .micro-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+    padding: 22px;
+  }
+  .tile {
+    background: #FFFFFF;
+    border: 1px solid #ECE6F8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    min-height: 120px;
+  }
+  .tile-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0B1020;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .tile-sub {
+    font-size: 11.5px;
+    color: #94A3B8;
+    margin-bottom: 10px;
+  }
+  .tile-body {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.55;
+  }
+  .tile ul { margin: 0; padding-left: 16px; }
+  .tile ul li { margin-bottom: 4px; }
+
+  .tile .pill-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #F5F0FF; color: #5B21B6;
+    border: 1px solid #E2D6FE;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px; font-weight: 500;
+  }
+  .pill.amber { background:#FFF7ED; color:#B45309; border-color:#FED7AA; }
+  .pill.green { background:#ECFDF5; color:#047857; border-color:#BBF7D0; }
+
+  /* Tile spans */
+  .span-4 { grid-column: span 4; }
+  .span-5 { grid-column: span 5; }
+  .span-6 { grid-column: span 6; }
+  .span-7 { grid-column: span 7; }
+  .span-8 { grid-column: span 8; }
+
+  .ai-msg {
+    background: linear-gradient(180deg, #F5F0FF 0%, #FAF7FF 100%);
+    border-color: #DDD0FB;
+  }
+  .ai-msg .quote {
+    font-style: italic;
+    color: #4C1D95;
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-top: 6px;
+    border-left: 2px solid #C4B5FD;
+    padding-left: 10px;
+  }
+
+  .timeline-bar {
+    display: flex; gap: 4px;
+    margin-top: 8px;
+    align-items: flex-end;
+    height: 32px;
+  }
+  .timeline-bar div {
+    flex: 1;
+    background: linear-gradient(180deg, #C4B5FD 0%, #7C3AED 100%);
+    border-radius: 2px;
+  }
+
+  .dot-icon {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  .dot-purple { background: #7C3AED; }
+  .dot-amber { background: #F59E0B; }
+  .dot-green { background: #10B981; }
+</style>
+</head>
+<body>
+<div class="page wide">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Pipeline Intelligence Suite · Workflow 16</div>
+    <div class="title">GTM Mesh — Account Intelligence Hub</div>
+    <div class="subtitle">
+      Aggregate every dev signal, every GTM engagement and every market-intelligence feed
+      into a per-account microsite — context-engineered for the rep, with an Ask-copilot
+      built in. Built with vibe-coding tools.
+    </div>
+  </div>
+
+  <!-- ====== Step 1: Source fan-in ====== -->
+  <div class="source-row">
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1a</div>
+        <div class="step-title">Developer activity signals</div>
+      </div>
+      <div class="step-desc">
+        30+ first-party Reo.Dev signals — repo, docs, CLI, Docker, package installs,
+        cloud signups, community, support &amp; more.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Reo.Dev signal types</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+            <div class="chip"><img src="assets/reo_engagedbuyer.png"/><span>Engaged buyer</span></div>
+            <div class="chip"><img src="assets/reo_techfit.png"/><span>Tech fit</span></div>
+            <div class="chip"><img src="assets/reo_salesready.png"/><span>Sales-ready</span></div>
+            <div class="chip"><img src="assets/reo_heatingcoolingpeaking.png"/><span>Heating / cooling</span></div>
+            <div class="chip"><img src="assets/reo_newkeyhire.png"/><span>New key hire</span></div>
+            <div class="chip"><img src="assets/reo_championjobchanges.png"/><span>Champion moves</span></div>
+            <div class="chip"><img src="assets/reo_technologyhiring.png"/><span>Tech hiring</span></div>
+            <div class="chip"><img src="assets/reo_technologymigrations.png"/><span>Tech migrations</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1b</div>
+        <div class="step-title">GTM engagement signals</div>
+      </div>
+      <div class="step-desc">
+        Every touchpoint the rep already has — calls, emails, LinkedIn outreach,
+        meetings, CRM history.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Calls</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/gong.png"/><span>Gong</span></div>
+            <div class="chip"><img src="assets/fireflies.png"/><span>Fireflies</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-row" style="margin-top:6px;">
+        <div class="tool-group">
+          <div class="tool-group-label">Email</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+            <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-row" style="margin-top:6px;">
+        <div class="tool-group">
+          <div class="tool-group-label">LinkedIn</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+            <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+            <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-row" style="margin-top:6px;">
+        <div class="tool-group">
+          <div class="tool-group-label">CRM</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1c</div>
+        <div class="step-title">Market &amp; firmographic intelligence</div>
+      </div>
+      <div class="step-desc">
+        Org changes, engineering projects, incidents, strategy announcements,
+        firmographics &amp; tech-fit context.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Firmographics</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clearbit.png"/><span>Clearbit</span></div>
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-row" style="margin-top:6px;">
+        <div class="tool-group">
+          <div class="tool-group-label">News &amp; strategy</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — PublicData</span></div>
+            <div class="chip"><img src="assets/claude.png"/><span>AI summariser</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-row" style="margin-top:6px;">
+        <div class="tool-group">
+          <div class="tool-group-label">Hiring &amp; org</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/linkedin_sales_nav.ico"/><span>LinkedIn</span></div>
+            <div class="chip"><img src="assets/reo_newkeyhire.png"/><span>Key hires</span></div>
+            <div class="chip"><img src="assets/reo_championjobchanges.png"/><span>Champion moves</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 3-to-1 converging arrow -->
+  <div class="converge"><div class="arrow"></div></div>
+
+  <!-- ====== Step 2: AI mesh / orchestration ====== -->
+  <div class="step ai">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="step-title">Aggregate &amp; reason — the GTM mesh layer</div>
+    </div>
+    <div class="step-desc">
+      Clay orchestrates the data plane; Claude / OpenAI run reasoning to normalise,
+      cluster, summarise and rank every signal per account. The output is a structured,
+      context-engineered account brief — refreshed continuously.
+    </div>
+    <div class="tool-row">
+      <div class="tool-group">
+        <div class="tool-group-label">Orchestration</div>
+        <div class="chips">
+          <div class="chip"><img src="assets/n8n.png"/><span>n8n</span></div>
+          <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          <div class="chip"><img src="assets/zapier.ico"/><span>API / Webhooks</span></div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <div class="tool-group-label">Reasoning</div>
+        <div class="chips">
+          <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+          <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <div class="tool-group-label">Account index</div>
+        <div class="chips">
+          <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev account graph</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ====== Step 3: Microsite rendered via vibe coding ====== -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="step-title">Render the per-account microsite</div>
+    </div>
+    <div class="step-desc">
+      Every account in scope gets its own microsite — context-engineered tabs for
+      qualification, buying committee, dev activity, market intel, intent signals
+      and AI-personalised outreach. Built &amp; iterated with vibe-coding tools.
+    </div>
+    <div class="tool-row">
+      <div class="tool-group">
+        <div class="tool-group-label">Web-app build</div>
+        <div class="chips">
+          <div class="chip"><img src="assets/lovable.png"/><span>Lovable</span></div>
+          <div class="chip"><img src="assets/replit.png"/><span>Replit</span></div>
+          <div class="chip"><img src="assets/claude_code.png"/><span>Claude Code</span></div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <div class="tool-group-label">Embeds &amp; surfaces</div>
+        <div class="chips">
+          <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+          <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+          <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ====== Microsite preview (mock) ====== -->
+  <div class="microsite">
+
+    <div class="browser-bar">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+      <div class="url">https://gtm-mesh.your-team.com/accounts/clickhouse-inc</div>
+      <div class="badge-live">Live · auto-refreshing</div>
+    </div>
+
+    <div class="microsite-header">
+      <div class="acct-row">
+        <div class="acct-logo">CH</div>
+        <div>
+          <div class="acct-name">ClickHouse Inc.</div>
+          <div class="acct-meta">Series C · ~250 eng · ICP Tier 1 · Owner: Joshua R.</div>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active">Overview</div>
+        <div class="tab">Buying committee</div>
+        <div class="tab">Dev activity</div>
+        <div class="tab">Market intel</div>
+        <div class="tab">AI co-pilot</div>
+      </div>
+    </div>
+
+    <div class="micro-grid">
+
+      <!-- Account Qualification -->
+      <div class="tile span-4">
+        <div class="tile-title"><span class="dot-icon dot-purple"></span> Account qualification</div>
+        <div class="tile-sub">Why this account is a good fit</div>
+        <div class="tile-body">
+          Firmographic + technical ICP <strong>Tier&nbsp;1</strong>. Active migration off in-house OLAP into managed columnar DB — strong stack-match with our value prop.
+          <div class="pill-row">
+            <span class="pill green">ICP Tier 1</span>
+            <span class="pill">Tech fit · 92</span>
+            <span class="pill">HQ · NY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buying Committee -->
+      <div class="tile span-4">
+        <div class="tile-title"><span class="dot-icon dot-amber"></span> Buying committee</div>
+        <div class="tile-sub">Best-fit buyers · 4 mapped</div>
+        <div class="tile-body">
+          <ul>
+            <li><strong>Joshua R.</strong> — VP Platform · economic buyer</li>
+            <li><strong>Aishwarya P.</strong> — Staff SRE · champion</li>
+            <li><strong>Diego M.</strong> — Director, Data Infra · influencer</li>
+            <li><strong>Priya S.</strong> — Eng Manager · user</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Influencers & Champions -->
+      <div class="tile span-4">
+        <div class="tile-title"><span class="dot-icon dot-green"></span> Influencers &amp; champions</div>
+        <div class="tile-sub">Active devs &amp; known champions</div>
+        <div class="tile-body">
+          <ul>
+            <li>3 active developers in product &amp; docs this week</li>
+            <li>Champion <strong>Aishwarya P.</strong> opened 2 docs threads</li>
+            <li>2 new key hires on the platform team in past 30d</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Developer Activity timeline -->
+      <div class="tile span-5">
+        <div class="tile-title"><span class="dot-icon dot-purple"></span> Developer activity timeline</div>
+        <div class="tile-sub">Last 30 days · 30+ Reo.Dev source types</div>
+        <div class="timeline-bar">
+          <div style="height:30%"></div><div style="height:55%"></div><div style="height:42%"></div>
+          <div style="height:70%"></div><div style="height:48%"></div><div style="height:60%"></div>
+          <div style="height:85%"></div><div style="height:75%"></div><div style="height:92%"></div>
+          <div style="height:65%"></div><div style="height:88%"></div><div style="height:100%"></div>
+        </div>
+        <div class="tile-body" style="margin-top:8px;">
+          Docs, GitHub, Docker pulls, CLI installs, cloud signups, community — all aggregated.
+          <div class="pill-row">
+            <span class="pill">↑ 64% WoW</span>
+            <span class="pill amber">Pricing page · 5×</span>
+            <span class="pill green">Sandbox started</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Critical Market Intelligence -->
+      <div class="tile span-7">
+        <div class="tile-title"><span class="dot-icon dot-amber"></span> Critical market intelligence</div>
+        <div class="tile-sub">Org changes · Eng projects · Incidents · Strategy</div>
+        <div class="tile-body">
+          <ul>
+            <li><strong>Org —</strong> Hiring 6 Platform Engineers · 2 new senior hires in past 30d</li>
+            <li><strong>Eng projects —</strong> Cloud-cost optimisation initiative announced last quarter</li>
+            <li><strong>Incidents —</strong> 2 minor outages tracked in past 90d on the data plane</li>
+            <li><strong>Strategy —</strong> Public commitment to AI workloads &amp; multi-region GA</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Signals of Purchase Intent -->
+      <div class="tile span-5">
+        <div class="tile-title"><span class="dot-icon dot-green"></span> Signals of purchase intent</div>
+        <div class="tile-sub">Multi-source, weighted</div>
+        <div class="tile-body">
+          <ul>
+            <li>Multiple active product users this week</li>
+            <li>Economic buyer in 2 recent calls</li>
+            <li>Pricing page hits + Enterprise tier explored</li>
+            <li>Paywall &amp; rate-limit hits in last 7 days</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Most important context + AI messages -->
+      <div class="tile span-7 ai-msg">
+        <div class="tile-title"><span class="dot-icon dot-purple"></span> Most important context · AI-drafted next step</div>
+        <div class="tile-sub">Top use cases · objections · competitive context · suggested message</div>
+        <div class="tile-body">
+          <strong>Top use case —</strong> migrate analytics workloads off in-house OLAP. <strong>Likely objection —</strong> data-locality + compliance. <strong>Competitive —</strong> evaluated alt vendor last quarter, paused on pricing.
+          <div class="quote">
+            "Hi Joshua, noticed your team is trying out ClickHouse builds under illumos —
+            powerful but complex to troubleshoot internally. We have ClickHouse experts
+            who can accelerate your evaluation and dial in best practices.
+            Would you like to talk to one of our engineers?"
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer" style="margin-top:32px;">
+    <strong>The single pane of glass</strong> · One microsite per account · continuously refreshed by the GTM mesh
+  </div>
+
+</div>
+</body>
+</html>

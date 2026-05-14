@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Competitor Repo Pain Capture Agent — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Automated Outbound Suite · Workflow 08</div>
+    <div class="title">Competitor Repo Pain Capture Agent</div>
+    <div class="subtitle">
+      Mine every new GitHub issue on competitor repos for displacement signals — and
+      turn frustrated developers into warm-up displacement outbound, automatically.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Configure competitor repo watchlist</div>
+      </div>
+      <div class="step-desc">
+        Wire up a Reo.Dev segment around the customer's competitor GitHub repos —
+        the issues feed becomes the live pain-signal stream.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Repo monitor</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — competitor repos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 — trigger -->
+    <div class="step">
+      <div class="trigger">Trigger · new GitHub issue opened</div>
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">New issue lands in a competitor repo</div>
+      </div>
+      <div class="step-desc">
+        Whenever a fresh issue is opened on a watched repo, the workflow fires — the
+        issue body and the developer's identity are pulled downstream.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 — AI sentiment + relevancy -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">AI sentiment + relevancy + displacement check</div>
+      </div>
+      <div class="step-desc">
+        Claude runs sentiment analysis on the issue, scores its relevancy to the
+        customer's value prop, and flags whether it's a real displacement opportunity.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Developer context</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev profile</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 -->
+    <div class="step compact">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">Qualify the developer + company</div>
+      </div>
+      <div class="step-desc">
+        Resolve the developer's company and check ICP fit. Only displacement-relevant
+        + in-ICP developers proceed to outbound.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 5 — fork: warm-up sequence + alert -->
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5a</div>
+          <div class="step-title">2–3 email warm-up sequence</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Drop the developer into a short value-prop + awareness sequence
+          framed against the competitor pain just observed.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+              <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+              <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+              <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+              <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5b</div>
+          <div class="step-title">Slack alert with the pain quote</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Internal Slack ping with the issue title, sentiment score and the
+          AE talk-track for follow-up.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual micro-campaign</strong> · Competitor frustration → your pipeline
+  </div>
+
+</div>
+</body>
+</html>

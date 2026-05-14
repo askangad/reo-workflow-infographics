@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Champion Career-Move Outbound — Reo ProServ</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Automated Outbound Suite · Workflow 07</div>
+    <div class="title">Champion Career-Move Outbound</div>
+    <div class="subtitle">
+      When a known champion drops out of one account and shows up in another ICP company,
+      auto-launch a warm, context-aware outbound motion at their new employer.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Define the champion list</div>
+      </div>
+      <div class="step-desc">
+        Build a segmented view of all champions across customer accounts — sourced
+        from CRM relationships and Reo.Dev contact graph.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Champion roster</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+            <div class="chip"><img src="assets/hubspot.png"/><span>HubSpot</span></div>
+            <div class="chip"><img src="assets/salesforce.ico"/><span>Salesforce</span></div>
+            <div class="chip"><img src="assets/attio.png"/><span>Attio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 2 — AI signal -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Monitor for drop-in-engagement signals</div>
+      </div>
+      <div class="step-desc">
+        An AI signal layer continuously watches for engagement decay — a sudden drop in
+        activity is the early indicator that a champion is moving on.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Activity drop</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — ChampionJobChanges</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Engagement decay</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/gong.png"/><span>Gong</span></div>
+            <div class="chip"><img src="assets/fireflies.png"/><span>Fireflies</span></div>
+            <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+            <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 3 — trigger -->
+    <div class="step">
+      <div class="trigger">Trigger · champion job change confirmed</div>
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">Champion has moved companies</div>
+      </div>
+      <div class="step-desc">
+        The signal layer confirms the champion has joined a new employer — the new
+        company is captured and queued for ICP qualification.
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 4 — AI ICP qualifier -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">AI checks: is the new employer an ICP account?</div>
+      </div>
+      <div class="step-desc">
+        Claude / OpenAI validates the new company against the ICP rubric — firmographics,
+        tech fit, headcount, Reo.Dev activity — before triggering outbound.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">ICP signals</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 5 — fork: Slack + multi-channel -->
+    <div class="fork">
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5a</div>
+          <div class="step-title">Slack alert to the rep</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Notify the CRM owner immediately — "champion X just joined ICP account Y,
+          outbound sequence has launched".
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/slack.png"/><span>Slack</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step terminal">
+        <div class="step-head">
+          <div class="step-num">5b</div>
+          <div class="step-title">LinkedIn touch sequence</div>
+        </div>
+        <div class="step-desc" style="margin-left:0;">
+          Warm "congrats on the new role" connection request, followed by an
+          AI-tailored message tying the past relationship to the new account.
+        </div>
+        <div class="tool-row" style="margin-left:0;">
+          <div class="tool-group">
+            <div class="chips">
+              <div class="chip"><img src="assets/heyreach.png"/><span>HeyReach</span></div>
+              <div class="chip"><img src="assets/lemlist.png"/><span>Lemlist</span></div>
+              <div class="chip"><img src="assets/phantombuster.png"/><span>PhantomBuster</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 6 — email touch -->
+    <div class="step terminal">
+      <div class="step-head">
+        <div class="step-num">5c</div>
+        <div class="step-title">Email touch sequence</div>
+      </div>
+      <div class="step-desc">
+        Parallel email sequence with AI-personalised copy that references the
+        prior relationship and the new opportunity at the new company.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="chips">
+            <div class="chip"><img src="assets/outreach.png"/><span>Outreach</span></div>
+            <div class="chip"><img src="assets/salesloft.jpg"/><span>Salesloft</span></div>
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            <div class="chip"><img src="assets/instantly.png"/><span>Instantly</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Perpetual micro-campaign</strong> · Champions become warm intros at new accounts
+  </div>
+
+</div>
+</body>
+</html>
