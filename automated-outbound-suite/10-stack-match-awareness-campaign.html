@@ -12,8 +12,9 @@
     <div class="badge"><span class="dot"></span> Automated Outbound Suite · Workflow 10</div>
     <div class="title">Stack-Match Awareness Campaign</div>
     <div class="subtitle">
-      Spot companies hiring around the technologies your product complements — and
-      run an awareness email sequence plus an ABM-ads air-cover, in parallel.
+      Spot companies hiring around the technologies your product complements,
+      pull the persona-matched buyers out of Reo.Dev for each account, then run an
+      awareness email sequence plus an ABM-ads air-cover in parallel.
     </div>
   </div>
 
@@ -116,16 +117,55 @@
 
     <div class="connector"></div>
 
-    <!-- Step 5 — fork: email + CSV ABM -->
+    <!-- Step 5 — Fetch buyers (NEW: account → contact pivot) -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <div class="step-title">Fetch matching buyers from Reo.Dev</div>
+      </div>
+      <div class="step-desc">
+        The signal is account-level, but outreach needs contacts. For each qualified
+        account, Reo.Dev surfaces the buyers that match the customer's defined buyer
+        personas — technical buyer profiles, designations, skills &amp; programming
+        languages — so only persona-fit contacts enter the awareness sequence.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Buyer source</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — buyer persona match</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Persona reasoning</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Contact enrichment</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/apollo.png"/><span>Apollo</span></div>
+            <div class="chip"><img src="assets/clearbit.png"/><span>Clearbit</span></div>
+            <div class="chip"><img src="assets/linkedin_sales_nav.ico"/><span>LinkedIn</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- Step 6 — fork: email + CSV ABM (renumbered) -->
     <div class="fork">
       <div class="step terminal">
         <div class="step-head">
-          <div class="step-num">5a</div>
+          <div class="step-num">6a</div>
           <div class="step-title">Awareness email sequence</div>
         </div>
         <div class="step-desc" style="margin-left:0;">
-          Drop the account's contacts into a value-prop awareness sequence —
-          tailored to the matched technologies in their stack.
+          The persona-matched buyers are enrolled into a value-prop awareness
+          sequence — tailored to the matched technologies in their stack.
         </div>
         <div class="tool-row" style="margin-left:0;">
           <div class="tool-group">
@@ -142,7 +182,7 @@
 
       <div class="step terminal">
         <div class="step-head">
-          <div class="step-num">5b</div>
+          <div class="step-num">6b</div>
           <div class="step-title">CSV → ABM LinkedIn Ads audience</div>
         </div>
         <div class="step-desc" style="margin-left:0;">
@@ -163,7 +203,7 @@
   </div>
 
   <div class="footer">
-    <strong>Perpetual workflow</strong> · Stack-match accounts get awareness + ad coverage in lockstep
+    <strong>Perpetual workflow</strong> · Stack-match accounts · the right buyers · awareness + ad coverage in lockstep
   </div>
 
 </div>
