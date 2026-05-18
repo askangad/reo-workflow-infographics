@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>OSS → Enterprise · ABM 1-Pager Playbook · Reo.Dev</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* Scoped tweaks for the playbook page */
+  .page { width: 1200px; padding: 64px 70px 72px 70px; }
+
+  /* Generic SVG glyph chip — used for API and Database icons we don't have a brand logo for */
+  .chip .glyph {
+    width: 22px; height: 22px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+    color: #FFFFFF;
+    flex: none;
+  }
+  .chip .glyph svg { width: 14px; height: 14px; }
+
+  /* ========= Sample 1-pager preview (mock) ========= */
+  .preview {
+    width: 100%;
+    margin-top: 6px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBFAFF 100%);
+    border: 1.5px solid #DDD0FB;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(124,58,237,0.04), 0 28px 48px -24px rgba(76,29,149,0.20);
+  }
+  .browser-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 18px;
+    background: #F4F1FA;
+    border-bottom: 1px solid #E9DEFB;
+  }
+  .browser-bar .b-dot { width: 11px; height: 11px; border-radius: 50%; }
+  .browser-bar .b-dot.r { background: #FF5F57; }
+  .browser-bar .b-dot.y { background: #FEBC2E; }
+  .browser-bar .b-dot.g { background: #28C840; }
+  .url-pill {
+    margin-left: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E9DEFB;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #4C1D95;
+    font-family: "SF Mono", Menlo, monospace;
+    max-width: 540px;
+  }
+  .badge-live {
+    margin-left: auto;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #E9F7EF; color: #047857;
+    border: 1px solid #BBF7D0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+  }
+  .badge-live::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+  }
+
+  .pv-hero {
+    padding: 38px 36px 28px 36px;
+    background: linear-gradient(180deg, #FAF7FF 0%, #FFFFFF 100%);
+    border-bottom: 1px solid #F0EBF8;
+  }
+  .pv-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    color: #6D28D9;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pv-hero h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0B1020;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px 0;
+  }
+  .pv-hero h2 .accent { color: #7C3AED; }
+  .pv-hero p {
+    font-size: 14.5px;
+    color: #475569;
+    margin: 0;
+    max-width: 740px;
+    line-height: 1.55;
+  }
+
+  .pv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 22px 36px;
+  }
+  .pv-stat {
+    background: #FFFFFF;
+    border: 1px solid #ECE6F8;
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .pv-stat .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0B1020;
+    letter-spacing: -0.02em;
+  }
+  .pv-stat .lbl {
+    font-size: 11.5px;
+    color: #94A3B8;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+  }
+  .pv-stat .delta {
+    margin-top: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #047857;
+  }
+
+  .pv-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+    padding: 4px 36px 22px 36px;
+  }
+  .pv-card {
+    background: #FFFFFF;
+    border: 1px solid #ECE6F8;
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .pv-card .title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0B1020;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .pv-card .sub {
+    font-size: 11.5px;
+    color: #94A3B8;
+    margin-bottom: 10px;
+  }
+  .pv-card ul {
+    margin: 0; padding-left: 16px;
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.55;
+  }
+  .pv-card ul li { margin-bottom: 4px; }
+
+  .build-vs-buy {
+    background: linear-gradient(180deg, #FFF7ED 0%, #FFFAF2 100%);
+    border-color: #FED7AA;
+  }
+  .build-vs-buy .title { color: #B45309; }
+  .build-vs-buy .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 8px;
+    font-size: 12.5px;
+  }
+  .build-vs-buy .row .k { color: #92400E; font-weight: 600; }
+  .build-vs-buy .row .v { color: #0B1020; font-weight: 700; }
+  .build-vs-buy .verdict {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(245,158,11,0.12);
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: #7C2D12;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .pv-cta {
+    margin: 0 36px 32px 36px;
+    background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 100%);
+    color: #FFFFFF;
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .pv-cta .pitch { font-size: 14px; line-height: 1.5; max-width: 640px; }
+  .pv-cta .pitch strong { font-size: 16px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .pv-cta .button {
+    background: #FFFFFF; color: #5B21B6;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 8px 16px -6px rgba(0,0,0,0.18);
+  }
+
+  /* Inline reaction badge */
+  .quote-row {
+    margin: -2px 36px 24px 36px;
+    background: #F5F0FF;
+    border: 1px dashed #C4B5FD;
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #4C1D95;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .quote-row strong { font-style: normal; color: #5B21B6; font-weight: 700; margin-right: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge"><span class="dot"></span> Reo.Dev Playbook · ABM 1-Pager</div>
+    <div class="title">Convert your OSS users into enterprise customers</div>
+    <div class="subtitle">
+      Spin up a personalised landing page per target account — fed by their own
+      developer-usage data — and use it as the wedge for the enterprise conversation.
+    </div>
+  </div>
+
+  <div class="flow">
+
+    <!-- ============ Step 1 ============ -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-title">Build the target list in Reo</div>
+      </div>
+      <div class="step-desc">
+        Create a segment of accounts you want a 1-pager for — your in-market OSS
+        users, your hot signals cohort, your top-of-funnel ICP. This list is the
+        universe everything else operates on.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Account universe</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — segments &amp; account lists</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- ============ Step 2 ============ -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-title">Pull raw usage data via the developers API</div>
+      </div>
+      <div class="step-desc">
+        For every company in the segment, hit the Reo developers API to pull the raw
+        activity feed — page visits, doc reads, sandbox runs, CLI events — and the
+        identified-developer roster.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Data source</div>
+          <div class="chips">
+            <div class="chip">
+              <span class="glyph">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l-3 4 3 4M11 4l3 4-3 4M9 3l-2 10"/></svg>
+              </span>
+              <span>developers.reo.dev API</span>
+            </div>
+            <div class="chip"><img src="assets/reo.png"/><span>Reo.Dev — activity feed + dev roster</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- ============ Step 3 — AI ============ -->
+    <div class="step ai">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-title">LLM parses raw data into landing-page sections</div>
+      </div>
+      <div class="step-desc">
+        Hand the raw API response to an LLM and ask it to bucket the data into the
+        sections your landing-page template needs — top use cases, page-visit
+        breakdown, active-dev count, estimated engineering hours, build-vs-buy framing,
+        per-dev highlights. One pass, structured JSON out.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Orchestration</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/clay.png"/><span>Clay</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">LLM</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/claude.png"/><span>Claude</span></div>
+            <div class="chip"><img src="assets/openai.png"/><span>OpenAI</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- ============ Step 4 ============ -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-title">Store the structured per-account data</div>
+      </div>
+      <div class="step-desc">
+        Write the LLM's structured output to whatever backend your landing-page builder
+        reads from — one row per account, with all the page-section fields as columns.
+        This is what your template binds against at publish time.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Backend</div>
+          <div class="chips">
+            <div class="chip">
+              <span class="glyph">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="3.5" rx="5.5" ry="2"/><path d="M2.5 3.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9"/><path d="M2.5 8c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/></svg>
+              </span>
+              <span>Postgres / Supabase</span>
+            </div>
+            <div class="chip"><img src="assets/airtable.png"/><span>Airtable</span></div>
+            <div class="chip"><img src="assets/csv.png"/><span>Google Sheet / CSV</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- ============ Step 5 ============ -->
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <div class="step-title">Publish one 1-pager per account</div>
+      </div>
+      <div class="step-desc">
+        Bind the per-account row to your landing-page template and deploy. Each account
+        gets a unique shareable URL you can drop into LinkedIn DMs and emails — and
+        every page is a personalised, data-backed conversation starter.
+      </div>
+      <div class="tool-row">
+        <div class="tool-group">
+          <div class="tool-group-label">Vibe-coded / no-code builders</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/lovable.png"/><span>Lovable</span></div>
+            <div class="chip"><img src="assets/replit.png"/><span>Replit</span></div>
+            <div class="chip"><img src="assets/claude_code.png"/><span>Claude Code</span></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">CMS / hosting</div>
+          <div class="chips">
+            <div class="chip"><img src="assets/framer.png"/><span>Framer</span></div>
+            <div class="chip"><img src="assets/webflow.png"/><span>Webflow</span></div>
+            <div class="chip"><img src="assets/vercel.png"/><span>Vercel</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- ============ Sample output preview ============ -->
+    <div class="preview">
+
+      <div class="browser-bar">
+        <div class="b-dot r"></div>
+        <div class="b-dot y"></div>
+        <div class="b-dot g"></div>
+        <div class="url-pill">https://acme.your-team.com/account/example-co</div>
+        <div class="badge-live">Live · per-account URL</div>
+      </div>
+
+      <div class="pv-hero">
+        <div class="pv-eyebrow">Example output · your template, your design</div>
+        <h2>Hi <span class="accent">[CompanyName]</span> — here's what your team has been building with our open source.</h2>
+        <p>
+          A personalised view of the work your engineers are putting in to assemble a homegrown
+          solution — and a quick read on what that's costing you. Pulled from your developer-usage
+          activity over the last 90 days.
+        </p>
+      </div>
+
+      <div class="pv-stats">
+        <div class="pv-stat">
+          <div class="num">12</div>
+          <div class="lbl">Active developers</div>
+          <div class="delta">↑ 4 this month</div>
+        </div>
+        <div class="pv-stat">
+          <div class="num">~640 hrs</div>
+          <div class="lbl">Engineering effort · last 90d</div>
+          <div class="delta">↑ 28% QoQ</div>
+        </div>
+        <div class="pv-stat">
+          <div class="num">~$96K</div>
+          <div class="lbl">Estimated effort cost</div>
+          <div class="delta">Based on $150/hr blended</div>
+        </div>
+        <div class="pv-stat">
+          <div class="num">5</div>
+          <div class="lbl">Use cases in motion</div>
+          <div class="delta">3 in production</div>
+        </div>
+      </div>
+
+      <div class="pv-grid">
+        <div class="pv-card">
+          <div class="title">Top use cases your team is exploring</div>
+          <div class="sub">From doc-page activity, sandbox runs and GitHub repo signals</div>
+          <ul>
+            <li>Ingest pipeline for unstructured PDFs at scale (≈ 40% of total activity)</li>
+            <li>RAG document chunking for the internal copilot (≈ 25%)</li>
+            <li>OCR + extraction for the customer support backlog (≈ 18%)</li>
+            <li>Embeddings pre-processing for the recommendations model (≈ 12%)</li>
+            <li>Experimental — multi-modal indexing (≈ 5%)</li>
+          </ul>
+        </div>
+
+        <div class="pv-card build-vs-buy">
+          <div class="title">Build vs. Buy — quick read</div>
+          <div class="sub">Based on observed usage patterns</div>
+          <div class="row"><span class="k">Eng hours invested · last 90d</span><span class="v">~640</span></div>
+          <div class="row"><span class="k">Projected hours · next 90d</span><span class="v">~820</span></div>
+          <div class="row"><span class="k">Estimated annualised cost</span><span class="v">~$310K</span></div>
+          <div class="verdict">
+            Your team has already invested the cost of an enterprise plan — and you're still on
+            the homegrown path. Worth comparing.
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-row">
+        <strong>The hook:</strong>
+        "Hi [Name], saw your team is actively building with our open source — here's a personalised view of what that's looking like, with a quick read on what it's costing in engineering time."
+      </div>
+
+      <div class="pv-cta">
+        <div class="pitch">
+          <strong>Want the same view with deeper data + a side-by-side on the enterprise plan?</strong>
+          We'll spin up a custom dashboard live on a 30-minute call — full developer-level breakdown,
+          per-team usage, and the exact build-vs-buy gap for your roadmap.
+        </div>
+        <a class="button" href="#">Book a 30-min walkthrough →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Inspired by Unstructured's open-source → enterprise playbook</strong> · Built on Reo.Dev
+  </div>
+
+</div>
+</body>
+</html>
